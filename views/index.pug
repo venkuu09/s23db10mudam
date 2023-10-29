@@ -3,4 +3,18 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}. This is Venkatesh Mudam pursuing Master's in Applied Computer science.
-  button(type="button", class="btn btn-primary") Press Me
+  
+  button(type="button", class="btn btn-primary" onclick="goFaster()") Press Me
+  br
+  div#faster Increase the speed
+    script.
+      var mph = 20;
+      var change = 1;
+
+      function goFaster() {
+        mph += change;
+        change += 1;
+        var div = document.getElementById("faster");
+        div.textContent = "MPH " + mph + " with change " + change;
+      }
+
