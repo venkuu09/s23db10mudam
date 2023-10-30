@@ -4,8 +4,8 @@ My Love towards everyone is unbeatable. - Venkatesh Mudam
 
 [Link to Render Server](https://f23wb10mudam.onrender.com)
 
-Vehicles
+**Class Name:** Vehicles
 
-"vehicle_type" (string)
-"color" (string)
-"price" (number)
+- **Attribute 1:** vehicle_type (String)
+- **Attribute 2:** color (String)
+- **Attribute 3:** price (Number)
