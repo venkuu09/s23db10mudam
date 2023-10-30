@@ -7,8 +7,6 @@ block content
   button(type="button", class="btn btn-primary" onclick="goFaster()") Press Me
   br
   div#faster Increase the speed
-
-  a(href="/vehicles") Vehicles Search Results
     script.
       var mph = 20;
       var change = 1;
@@ -19,4 +17,5 @@ block content
         var div = document.getElementById("faster");
         div.textContent = "MPH " + mph + " with change " + change;
       }
+      //- a(href="/vehicles") Return to Vehicle Search
 
