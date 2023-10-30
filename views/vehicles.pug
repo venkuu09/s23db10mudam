@@ -3,22 +3,21 @@ extends layout
 block content
   h1= title
   
-  -
-  let results = [
-    { vehicle_type: "Car", color: "Red", price: 25000 },
-    { vehicle_type: "Motorcycle", color: "Blue", price: 8000 },
-    { vehicle_type: "Truck", color: "Green", price: 35000 }
-  ] 
-  div.container-fluid
-    div.row
-      -
-      results.forEach((result) => {
-        div.col-sm-2
-          h4 #{result.vehicle_type}
-          p Color: #{result.color}
-          p Price: $#{result.price}
-      })
+  //- -
+  //- let results = [
+  //-   { vehicle_type: "Car", color: "Red", price: 25000 },
+  //-   { vehicle_type: "Motorcycle", color: "Blue", price: 8000 },
+  //-   { vehicle_type: "Truck", color: "Green", price: 35000 }
+  //- ] 
+  //- div.container-fluid
+  //-   div.row
+  //-     -
+  //-     results.forEach((result) => {
+  //-       div.col-sm-2
+  //-         h4 #{result.vehicle_type}
+  //-         p Color: #{result.color}
+  //-         p Price: $#{result.price}
+  //-     })
 
-a(href="/vehicles") Return to Vehicle Search
 
   
