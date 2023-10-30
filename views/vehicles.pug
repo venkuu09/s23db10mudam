@@ -2,22 +2,24 @@ extends layout
 
 block content
   h1= title
-  
-  //- -
-  //- let results = [
-  //-   { vehicle_type: "Car", color: "Red", price: 25000 },
-  //-   { vehicle_type: "Motorcycle", color: "Blue", price: 8000 },
-  //-   { vehicle_type: "Truck", color: "Green", price: 35000 }
-  //- ] 
-  //- div.container-fluid
-  //-   div.row
-  //-     -
-  //-     results.forEach((result) => {
-  //-       div.col-sm-2
-  //-         h4 #{result.vehicle_type}
-  //-         p Color: #{result.color}
-  //-         p Price: $#{result.price}
-  //-     })
+  - var vehicles =[{name:"Swift", mileage:"50000", price:200000},{name:"Creta",mileage:"20000",price:1500000},{name:"Thar",milage:"500000",price:3000000}]
+  div(class="container-fluid")
+  div(class="row")
+   each v,index  in vehicles
+    div(class="col-sm-2" onclick =`buy(${index})`) #{v.name}, #{v.mileage}, #{v.price}
+    //- script.
+    //-     function buy(a)
+    //-     {
+    //-         alert(`You purchased Item ${a+1}`)
+    //-     }
+ 
+      -
+      results.forEach((result) => {
+        div.col-sm-2
+          h4 #{result.vehicle_type}
+          p Color: #{result.color}
+          p Price: $#{result.price}
+      })
 
 
   
