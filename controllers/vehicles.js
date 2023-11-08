@@ -18,8 +18,24 @@ exports.vehicles_detail = function (req, res) {
 };
 
 // Handle Vehicles create on POST.
-exports.vehicles_create_post = function (req, res) {
-    res.send('NOT IMPLEMENTED: Vehicles create POST');
+exports.vehicles_create_post = async function (req, res) {
+    console.log(req.body)
+    let document = new Vehicles();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"costume_type":"goat", "cost":12, "size":"large"}
+    document.name = req.body.name;
+    document.mileage = req.body.mileage;
+    document.price = req.body.price;
+    try {
+        let result = await document.save();
+        res.send(result);
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 };
 
 // Handle Vehicles delete form on DELETE.
