@@ -9,8 +9,8 @@ My Love towards everyone is unbeatable. - Venkatesh Mudam
 ```
   class Vehicle {
     constructor(name, mileage, price) {
-      this.vehicleType = vehicleType;
-      this.color = color;
+      this.name = name;
+      this.mileage = mileage;
       this.price = price;
     }
   }
