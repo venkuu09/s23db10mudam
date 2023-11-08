@@ -4,4 +4,4 @@ const vehicleSchema = mongoose.Schema({
     mileage : Number,
     price : Number
 })
-module.exports = mongoose.model("vehicle", vehicleSchema)
+module.exports = mongoose.model("vehicles", vehicleSchema)

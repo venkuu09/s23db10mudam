@@ -11,8 +11,7 @@ mongoose.connect(connectionString,
   { useNewUrlParser: true, 
   useUnifiedTopology: true });
 
-
-var Vehicles = require("./models/vehicle");
+var Vehicles = require("./models/vehicles");
 
 async function recreateDB() {
   // Delete everything
@@ -21,7 +20,7 @@ async function recreateDB() {
     name: "Creta", mileage: 20000,
     price: 130000
   });
-  
+
   let instance2 = new Vehicles({
     name: "Swift", mileage: 122000,
     price: 483000
@@ -68,8 +67,6 @@ app.use('/vehicles', vehiclesRouter);
 app.use('/board', boardRouter);
 app.use('/choose', chooseRouter);
 // app.use('/resource',resourceRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
