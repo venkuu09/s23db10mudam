@@ -7,16 +7,10 @@ var logger = require('morgan');
 require('dotenv').config();
 const connectionString = process.env.MONGO_CON
 mongoose = require('mongoose');
-mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(connectionString, 
+  { useNewUrlParser: true, 
+  useUnifiedTopology: true });
 
-
-//Get the default connection
-var db = mongoose.connection;
-//Bind connection to error event
-db.on('error', console.error.bind(console, 'MongoDB connectionerror:'));
-db.once("open", function () {
-  console.log("Connection to DB succeeded")
-});
 
 var Vehicles = require("./models/vehicle");
 
@@ -27,15 +21,16 @@ async function recreateDB() {
     name: "Creta", mileage: 20000,
     price: 130000
   });
+  
   let instance2 = new Vehicles({
     name: "Swift", mileage: 122000,
     price: 483000
-  })
+  });
 
   let instance3 = new Vehicles({
     name: "Thar", mileage: 34000,
     price: 640000
-  })
+  });
 
   const newArray = [instance1.save(), instance2.save(), instance3.save()];
   Promise.all(newArray).then(doc => {
