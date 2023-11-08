@@ -11,6 +11,14 @@ mongoose.connect(connectionString,
   { useNewUrlParser: true, 
   useUnifiedTopology: true });
 
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event
+db.on('error', console.error.bind(console, 'MongoDB connectionerror:'));
+db.once("open", function () {
+  console.log("Connection to DB succeeded")
+});
+
 var Vehicles = require("./models/vehicles");
 
 async function recreateDB() {
@@ -34,6 +42,8 @@ async function recreateDB() {
   const newArray = [instance1.save(), instance2.save(), instance3.save()];
   Promise.all(newArray).then(doc => {
     console.log("First object saved")
+    console.log("Second object saved")
+    console.log("Third object saved")
   }
   ).catch(err => {
     console.error(err)
@@ -41,6 +51,7 @@ async function recreateDB() {
 }
 let reseed = true;
 if (reseed) { recreateDB(); }
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
