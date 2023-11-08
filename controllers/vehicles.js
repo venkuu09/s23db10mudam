@@ -2,7 +2,14 @@ var Vehicles = require("../models/vehicles");
 
 // List of all Vehicles
 exports.vehicles_list = async function (req, res) {
-    res.send('NOT IMPLEMENTED: Vehicles list');
+    try {
+        theVehicles = await Vehicles.find();
+        res.send(theVehicles);
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 };
 
 // for a specific Vehicles.
