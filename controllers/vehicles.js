@@ -1,3 +1,4 @@
+const vehicles = require("../models/vehicles");
 var Vehicles = require("../models/vehicles");
 
 // List of all Vehicles
@@ -16,7 +17,7 @@ exports.vehicles_list = async function (req, res) {
 exports.vehicles_detail = async function(req, res) {
     console.log("detail" + req.params.id)
     try {
-    result = await vehicles.findById( req.params.id)
+    result = await vehicles.findById(req.params.id);
     res.send(result)
     } catch (error) {
     res.status(500)
