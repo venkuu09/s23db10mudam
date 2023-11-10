@@ -23,6 +23,7 @@ exports.vehicles_detail = async function(req, res) {
     res.send(`{"error": document for id ${req.params.id} not found`);
     }
    };
+   
 
 // Handle Vehicles create on POST.
 exports.vehicles_create_post = async function (req, res) {
