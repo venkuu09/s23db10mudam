@@ -1,19 +1,19 @@
 extends layout
 block content
  h1= title
- form(id='CostumeForm', action="/resource/costumes", method="POST")
+ form(id='vehiclesForm', action="/resource/vehicles", method="POST")
  div.form-group
- label.costumeAttr(for='costume_type') Costume type
- input#costume_type(type='text', name='costume_type')
+ label.vehiclesAttr(for='name') name
+ input#name(type='text', name='name')
  div.form-group
- label.costumeAttr(for='size') Costume size
- input#size(type='text', name='size')
+ label.vehiclesAttr(for='mileage') mileage
+ input#mileage(type='number', name='mileage')
  div.form-group
- label.costumeAttr(for='cost') Costume cost
- input#cost(type='number', name='cost')
+ label.vehiclesAttr(for='price') price
+ input#price(type='number', name='price')
  input(type="submit")
  script.
- document.forms['CostumeForm'].addEventListener('submit', (event) => {
+ document.forms['vehiclesForm'].addEventListener('submit', (event) => {
  event.preventDefault();
  // TODO do something here to show user that form is being submitted
  fetch(event.target.action, {
