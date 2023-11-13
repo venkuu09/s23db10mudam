@@ -95,12 +95,11 @@ exports.vehicles_view_all_Page = async function (req, res) {
 };
 
 // Handle a show one view with id specified by query
-exports.vehicles_view_one_Page = async function(req, res) {
+    exports.vehicles_view_one_Page = async function(req, res) {
     console.log("single view for id " + req.query.id)
     try{
-    result = await vehicles.findById( req.query.id)
-    res.render('vehcilesdetail',
-   { title: 'Vehicles Detail', toShow: result });
+    result = await vehicles.findById(req.query.id)
+    res.render('vehiclesdetail', { title: 'Vehicles Detail', toShow: result});
     }
     catch(err){
     res.status(500)

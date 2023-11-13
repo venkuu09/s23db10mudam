@@ -19,6 +19,10 @@ router.put('/vehicles/:id', vehicles_controller.vehicles_update_put);
 router.get('/vehicles/:id', vehicles_controller.vehicles_detail);
 // GET request for list of all vehicles items.
 router.get('/vehicles', vehicles_controller.vehicles_list);
+
 /* GET detail vehicles page */
 router.get('/detail', vehicles_controller.vehicles_view_one_Page);
+// GET create costume page
+router.get('/create', vehicles_controller.vehicles_create_Page);
+
 module.exports = router;
