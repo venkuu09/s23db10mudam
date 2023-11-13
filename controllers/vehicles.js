@@ -48,9 +48,17 @@ exports.vehicles_create_post = async function (req, res) {
 };
 
 // Handle Vehicles delete form on DELETE.
-exports.vehicles_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: Vehicles delete DELETE ' + req.params.id);
-};
+exports.vehicles_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await vehicles.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+   };
 
 // Handle Vehicles update form on PUT.
 exports.vehicles_update_put = async function(req, res) {
@@ -85,3 +93,17 @@ exports.vehicles_view_all_Page = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
+
+// Handle a show one view with id specified by query
+exports.vehicles_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await vehicles.findById( req.query.id)
+    res.render('vehcilesdetail',
+   { title: 'Vehicles Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
