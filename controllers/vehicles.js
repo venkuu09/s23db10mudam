@@ -126,7 +126,7 @@ exports.vehicle_update_Page = async function (req, res) {
     console.log("update view for item " + req.query.id)
     try {
         let result = await Vehicles.findById(req.query.id)
-        res.render('vehicleupdate', { title: 'Vehicle Update', toShow: result });
+        res.render('vehiclesupdate', { title: 'Vehicle Update', toShow: result });
     }
     catch (err) {
         res.status(500)

@@ -5,35 +5,24 @@ block content
         - let name = toShow.name
         - let mileage = toShow.mileage
         - let price = toShow.price
-        div.row(class='mb-4')
-            div.col-12
-                h4 Vehicle Details
-            div.col-12
-                div.row(class='mb-2')
-                    div.col-md-2 Vehicle ID:
-                    div.col-md-4 #{vehicleid}
-                div.row(class='mb-2')
-                    div.col-md-2 Vehicle Name:
-                    div.col-md-4 #{name}
-                div.row(class='mb-2')
-                    div.col-md-2 Vehicle Mileage:
-                    div.col-md-4 #{mileage}
-                div.row(class='mb-2')
-                    div.col-md-2 Vehicle Price:
-                    div.col-md-4 #{price}
-        - let actionid = "/resource/vehicles/" + vehicleid
-        form(id='VehiclesForm', action= actionid, method="PUT")
-            div.form-group
-                label.vehiclesAttr(for='name' class='form-label') Vehicle Name
-                input#name(type='text', name='name', value= name class='form-control')
-            div.form-group
-                label.vehiclesAttr(for='mileage' class='form-label') Vehicle Mileage
-                input#mileage(type='number', name='color', value= mileage class='form-control')
-            div.form-group
-                label.vehiclesAttr(for='price' class='form-label') Vehicle Price
-                input#price(type="number", name="price", value=price class="form-control")
-            div.form-group.d-flex.justify-content-center  
-                button.btn.btn-primary.mt-4(type="submit" class="text-center") Update  
+
+    div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{vehicleid}
+    
+  - let actionid = "/resource/vehicles/" + vehicleid
+  form(id='VehiclesForm', action= actionid, method="PUT")
+    div.form-group
+      label.VehiclesAttr(for='name') Vehicle name
+      input#name(type='text', name='name', value= name )
+    div.form-group
+      label.VehiclesAttr(for='mileage') Vehicle mileage
+      input#mileage(type='number', name='mileage', value= mileage )
+    div.form-group
+      label.VehiclesAttr(for='price') Vechile price
+      input#price(type='number', name='price', value= price )
+    input(type="submit")
+
     script.
         document.forms['VehiclesForm'].addEventListener('submit', (event) => {
             event.preventDefault();
