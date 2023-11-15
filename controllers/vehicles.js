@@ -1,4 +1,3 @@
-const vehicles = require("../models/vehicles");
 var Vehicles = require("../models/vehicles");
 
 // List of all Vehicles
@@ -17,7 +16,7 @@ exports.vehicles_list = async function (req, res) {
 exports.vehicles_detail = async function(req, res) {
     console.log("detail" + req.params.id)
     try {
-    result = await vehicles.findById(req.params.id);
+    result = await Vehicles.findById(req.params.id);
     res.send(result)
     } catch (error) {
     res.status(500)
@@ -51,7 +50,7 @@ exports.vehicles_create_post = async function (req, res) {
 exports.vehicles_delete = async function(req, res) {
     console.log("delete " + req.params.id)
     try {
-    result = await vehicles.findByIdAndDelete( req.params.id)
+    result = await Vehicles.findByIdAndDelete( req.params.id)
     console.log("Removed " + result)
     res.send(result)
     } catch (err) {
@@ -65,7 +64,7 @@ exports.vehicles_update_put = async function(req, res) {
     console.log(`update on id ${req.params.id} with body
    ${JSON.stringify(req.body)}`)
     try {
-    let toUpdate = await vehicles.findById(req.params.id)
+    let toUpdate = await Vehicles.findById(req.params.id)
     // Do updates of properties
     if(req.body.name)
     toUpdate.name = req.body.name;
@@ -95,17 +94,17 @@ exports.vehicles_view_all_Page = async function (req, res) {
 };
 
 // Handle a show one view with id specified by query
-exports.vehicles_view_one_Page = async function(req, res) {
+exports.vehicles_view_one_Page = async function (req, res) {
     console.log("single view for id " + req.query.id)
-    try{
-    result = await vehicles.findById(req.query.id)
-    res.render('vehiclesdetail', { title: 'Vehicles Detail', toShow: result});
+    try {
+        result = await Vehicles.findById(req.query.id)
+        res.render('vehiclesdetail', { title: 'Vehicles Detail', toShow: result });
     }
-    catch(err){
-    res.status(500)
-    res.send(`{'error': '${err}'}`);
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
     }
-   };
+};
 
     // Handle building the view for creating a vehicle.
     // No body, no in path parameter, no query.

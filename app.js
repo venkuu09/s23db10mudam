@@ -7,9 +7,11 @@ var logger = require('morgan');
 require('dotenv').config();
 const connectionString = process.env.MONGO_CON
 mongoose = require('mongoose');
-mongoose.connect(connectionString, 
-  { useNewUrlParser: true, 
-  useUnifiedTopology: true });
+mongoose.connect(connectionString,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
 
 //Get the default connection
 var db = mongoose.connection;
@@ -77,15 +79,15 @@ app.use('/users', usersRouter);
 app.use('/vehicles', vehiclesRouter);
 app.use('/board', boardRouter);
 app.use('/choose', chooseRouter);
-app.use('/resource',resourceRouter);
+app.use('/resource', resourceRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
