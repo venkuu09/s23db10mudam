@@ -28,7 +28,7 @@ block content
                 input.btn.btn-primary(type="submit", value="Update")
 
     script.
-        document.forms['makeupForm'].addEventListener('submit', (event) => {
+        document.forms['vehiclesForm'].addEventListener('submit', (event) => {
             event.preventDefault();
             // TODO: Add your Fetch API code here for form submission handling
              fetch(event.target.action, {
@@ -41,6 +41,6 @@ block content
                 // TODO handle body
                 }).catch((error) => {
                 // TODO handle error
-                alert("Update failed " + error )
+                alert("Update failed " + error)
             });
         });
